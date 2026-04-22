@@ -8,52 +8,104 @@ html
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #333; }
-        
-        /* Header */
-        header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-align: center; padding: 60px 20px; }
-        .avatar { width: 120px; height: 120px; border-radius: 50%; background: white; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 50px; }
-        header h1 { font-size: 2.5em; margin-bottom: 10px; }
-        header p { font-size: 1.2em; opacity: 0.9; }
-        
-        /* Nav */
-        nav { background: #333; text-align: center; padding: 15px; position: sticky; top: 0; z-index: 100; }
-        nav a { color: white; text-decoration: none; margin: 0 20px; font-size: 1em; }
+        header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white; text-align: center; padding: 80px 20px;
+            position: relative; overflow: hidden;
+        }
+        header::before {
+            content: ''; position: absolute; top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+        .avatar {
+            width: 130px; height: 130px; border-radius: 50%;
+            background: white; margin: 0 auto 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 60px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 4px solid rgba(255,255,255,0.5);
+        }
+        header h1 { font-size: 2.8em; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        header p { font-size: 1.2em; opacity: 0.9; margin-bottom: 5px; }
+        nav {
+            background: #2d2d2d; text-align: center; padding: 18px;
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        nav a {
+            color: white; text-decoration: none; margin: 0 20px;
+            font-size: 1em; transition: color 0.3s; font-weight: 500;
+        }
         nav a:hover { color: #667eea; }
-        
-        /* Sections */
-        section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        .card { background: white; border-radius: 15px; padding: 30px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        h2 { color: #667eea; font-size: 1.8em; margin-bottom: 20px; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
-        
-        /* Skills */
-        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
-        .skill { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 8px 20px; border-radius: 25px; font-size: 0.9em; }
-        
-        /* Projects */
-        .project-card { background: #f8f9ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 10px; margin-bottom: 15px; }
-        .project-card h3 { color: #333; margin-bottom: 8px; }
-        .project-card p { color: #666; font-size: 0.95em; line-height: 1.6; }
-        .project-link { display: inline-block; margin-top: 10px; color: #667eea; text-decoration: none; font-weight: bold; }
-        
-        /* Contact */
-        .contact-info { display: flex; flex-direction: column; gap: 15px; }
-        .contact-item { display: flex; align-items: center; gap: 10px; font-size: 1em; }
-        .contact-item a { color: #667eea; text-decoration: none; }
-        
-        /* Footer */
-        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+        section { max-width: 950px; margin: 40px auto; padding: 0 20px; }
+        .card {
+            background: white; border-radius: 20px; padding: 35px;
+            margin-bottom: 30px; box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .card:hover { transform: translateY(-5px); }
+        h2 {
+            color: #667eea; font-size: 1.8em; margin-bottom: 25px;
+            border-bottom: 3px solid #667eea; padding-bottom: 12px;
+        }
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 12px; }
+        .skill {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white; padding: 10px 22px; border-radius: 25px;
+            font-size: 0.9em; box-shadow: 0 4px 10px rgba(102,126,234,0.3);
+            transition: transform 0.2s;
+        }
+        .skill:hover { transform: scale(1.05); }
+        .project-card {
+            background: linear-gradient(135deg, #f8f9ff, #f0f2ff);
+            border-left: 5px solid #667eea; padding: 25px;
+            border-radius: 15px; margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s;
+        }
+        .project-card:hover { transform: translateX(5px); }
+        .project-card h3 { color: #4a4a8a; margin-bottom: 12px; font-size: 1.2em; }
+        .project-card p { color: #555; font-size: 0.95em; line-height: 1.8; margin-bottom: 8px; }
+        .detail { margin-top: 10px; }
+        .detail span {
+            display: inline-block; background: #667eea; color: white;
+            padding: 4px 12px; border-radius: 15px; font-size: 0.8em; margin: 3px;
+        }
+        .project-links { margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap; }
+        .project-link {
+            display: inline-block; padding: 8px 18px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white; text-decoration: none; border-radius: 20px;
+            font-size: 0.85em; font-weight: bold; transition: opacity 0.3s;
+        }
+        .project-link:hover { opacity: 0.85; }
+        .contact-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;
+        }
+        .contact-item {
+            background: linear-gradient(135deg, #f8f9ff, #f0f2ff);
+            padding: 20px; border-radius: 15px; text-align: center;
+            border: 2px solid #e0e4ff; transition: transform 0.3s;
+        }
+        .contact-item:hover { transform: translateY(-3px); }
+        .contact-item .icon { font-size: 2em; margin-bottom: 10px; }
+        .contact-item a { color: #667eea; text-decoration: none; font-weight: 500; word-break: break-all; }
+        footer {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white; text-align: center; padding: 25px; margin-top: 40px;
+        }
     </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
     <div class="avatar">👩‍💻</div>
     <h1>Malaika Zahoor</h1>
-    <p>BS Computer Science Student | Freelancing & IT Ethics</p>
+    <p>BS Computer Science Student</p>
+    <p>💡 Freelancing & IT Ethics Enthusiast | Pakistan 🇵🇰</p>
 </header>
 
-<!-- Nav -->
 <nav>
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
@@ -61,98 +113,156 @@ html
     <a href="#contact">Contact</a>
 </nav>
 
-<!-- About -->
 <section id="about">
     <div class="card">
         <h2>👋 About Me</h2>
-        <p>I am Malaika Zahoor, a BS Computer Science student with a strong interest in freelancing and IT ethics. I have hands-on programming experience in C, C++, Java, and Python. I am passionate about responsible use of technology and building a professional career in the digital world. My goal is to become a skilled IT professional and successful freelancer.</p>
+        <p style="line-height:1.9; font-size:1.05em;">
+            I am <strong>Malaika Zahoor</strong>, a passionate BS Computer Science student from Pakistan with a strong interest in freelancing and IT ethics. I have hands-on programming experience in <strong>C, C++, Java, and Python</strong>. Throughout my academic journey, I have built multiple projects ranging from GUI-based applications to Assembly Language simulations. My goal is to become a skilled IT professional and successful freelancer who contributes positively to the tech industry.
+        </p>
     </div>
 </section>
 
-<!-- Skills -->
 <section id="skills">
     <div class="card">
         <h2>🛠️ Skills</h2>
         <div class="skills-grid">
-            <span class="skill">C Programming</span>
-            <span class="skill">C++</span>
-            <span class="skill">Java</span>
-            <span class="skill">Python</span>
-            <span class="skill">SQL Database</span>
-            <span class="skill">HTML/CSS</span>
-            <span class="skill">MS Word</span>
-            <span class="skill">MS Excel</span>
-            <span class="skill">Problem Solving</span>
-            <span class="skill">Teamwork</span>
-            <span class="skill">Communication</span>
-            <span class="skill">Freelancing Ethics</span>
+            <span class="skill">⚡ C Programming</span>
+            <span class="skill">⚡ C++</span>
+            <span class="skill">☕ Java</span>
+            <span class="skill">🐍 Python</span>
+            <span class="skill">🗄️ SQL Database</span>
+            <span class="skill">🌐 HTML/CSS</span>
+            <span class="skill">🖥️ Assembly (COAL)</span>
+            <span class="skill">📊 MS Word & Excel</span>
+            <span class="skill">🔧 Problem Solving</span>
+            <span class="skill">🤝 Teamwork</span>
+            <span class="skill">💬 Communication</span>
+            <span class="skill">⚖️ Freelancing Ethics</span>
+            <span class="skill">💻 GUI Development</span>
+            <span class="skill">🖥️ VirtualBox</span>
         </div>
     </div>
 </section>
 
-<!-- Projects -->
 <section id="projects">
     <div class="card">
         <h2>📁 Projects</h2>
 
         <div class="project-card">
             <h3>📚 Library Management System</h3>
-            <p>A GUI-based Library Management System developed in Java with full Database connectivity. Features include adding, searching, and managing books and members.</p>
-            <a class="project-link" href="https://github.com/Malaika-CS/Library-Management-System" target="_blank">🔗 View on GitHub</a>
+            <p>A complete GUI-based Library Management System developed in Java with full Database connectivity.</p>
+            <p><strong>🎯 Objective:</strong> To digitize library operations and manage books and members efficiently.</p>
+            <p><strong>⚙️ Working:</strong> Users can add, search, update and delete books and member records. All data is stored permanently using SQL database connected through JDBC.</p>
+            <p><strong>📚 Learning:</strong> Learned Java GUI development, JDBC database connectivity, and OOP concepts.</p>
+            <div class="detail">
+                <span>Java</span><span>SQL</span><span>GUI</span><span>JDBC</span><span>OOP</span>
+            </div>
+            <div class="project-links">
+                <a class="project-link" href="https://github.com/Malaika-CS/Library-Management-System" target="_blank">🔗 View on GitHub</a>
+            </div>
         </div>
 
         <div class="project-card">
             <h3>🔌 Electricity Bill Generator</h3>
-            <p>A console-based Electricity Bill Generator developed in C Programming. Calculates electricity units and generates complete bill with all details.</p>
-            <a class="project-link" href="https://github.com/Malaika-CS/Electricity-Bill-Generator" target="_blank">🔗 View on GitHub</a>
+            <p>A console-based Electricity Bill Generator developed in C Programming as part of 1st Semester project.</p>
+            <p><strong>🎯 Objective:</strong> To calculate electricity charges based on unit slabs and generate accurate bills.</p>
+            <p><strong>⚙️ Working:</strong> User enters the units consumed. The program applies billing logic based on different unit slabs and displays a complete formatted bill.</p>
+            <p><strong>📚 Learning:</strong> Learned C programming basics, conditional logic, and formatted output generation.</p>
+            <div class="detail">
+                <span>C Programming</span><span>Console App</span><span>Functions</span><span>Conditions</span>
+            </div>
+            <div class="project-links">
+                <a class="project-link" href="https://github.com/Malaika-CS/Electricity-Bill-Generator" target="_blank">🔗 View on GitHub</a>
+            </div>
         </div>
 
         <div class="project-card">
             <h3>📊 Maximum Heap Insertion</h3>
-            <p>A Maximum Heap data structure project developed in Java. Implements Max Heap with insertion and heapify operations as part of Data Structures course.</p>
-            <a class="project-link" href="https://github.com/Malaika-CS/MaxHeap-Java" target="_blank">🔗 View on GitHub</a>
+            <p>A Maximum Heap data structure project developed in Java as part of 3rd Semester Data Structures course.</p>
+            <p><strong>🎯 Objective:</strong> To implement and understand Max Heap data structure with efficient insertion.</p>
+            <p><strong>⚙️ Working:</strong> Elements are inserted into the heap and heapify operation maintains the max heap property. Parent node is always greater than its children nodes.</p>
+            <p><strong>📚 Learning:</strong> Learned heap data structure, heapify operation, recursion and tree-based structures in Java.</p>
+            <div class="detail">
+                <span>Java</span><span>Data Structures</span><span>Max Heap</span><span>Recursion</span><span>Trees</span>
+            </div>
+            <div class="project-links">
+                <a class="project-link" href="https://github.com/Malaika-CS/Heap-Insertion-Data-Structure" target="_blank">🔗 View on GitHub</a>
+            </div>
         </div>
 
         <div class="project-card">
             <h3>💻 VirtualBox Windows Configuration</h3>
-            <p>Installed and configured Windows on VirtualBox. Performed FTP Server and Web Server configuration as part of Operating Systems course.</p>
-            <a class="project-link" href="https://github.com/Malaika-CS/VirtualBox-Windows-Configuration" target="_blank">🔗 View on GitHub</a>
+            <p>A practical project involving complete installation and configuration of Windows on VirtualBox as part of 3rd Semester Operating Systems course.</p>
+            <p><strong>🎯 Objective:</strong> To understand virtualization and configure FTP and Web servers on a virtual machine.</p>
+            <p><strong>⚙️ Working:</strong> Windows was installed on VirtualBox. FTP server was configured for file transfer between systems. Web server was also configured and tested successfully.</p>
+            <p><strong>📚 Learning:</strong> Learned virtualization concepts, FTP and Web server configuration, and network settings.</p>
+            <div class="detail">
+                <span>VirtualBox</span><span>Windows</span><span>FTP Server</span><span>Web Server</span><span>Networking</span>
+            </div>
+            <div class="project-links">
+                <a class="project-link" href="https://github.com/Malaika-CS/VirtualBox-Windows-Configuration" target="_blank">🔗 View on GitHub</a>
+            </div>
         </div>
 
         <div class="project-card">
             <h3>🖥️ Hex Editor Simulation</h3>
-            <p>A GUI-based Hex Decimal Editor first developed in C++ then converted to COAL Assembly Language and simulated on EMU8086 emulator.</p>
-            <a class="project-link" href="https://github.com/Malaika-CS/Hex-Editor-Simulation" target="_blank">🔗 View on GitHub</a>
+            <p>A GUI-based Hex Decimal Editor first developed in C++, then converted to COAL Assembly Language and simulated on EMU8086.</p>
+            <p><strong>🎯 Objective:</strong> To implement a Hex Editor using low-level programming and simulate it on EMU8086.</p>
+            <p><strong>⚙️ Working:</strong> First built as a GUI application in C++, then converted to Assembly Language (.asm) and simulated using EMU8086, allowing users to view and edit data in hexadecimal format.</p>
+            <p><strong>📚 Learning:</strong> Learned C++ GUI development, Assembly Language, hexadecimal system, and low-level computer architecture.</p>
+            <div class="detail">
+                <span>C++</span><span>COAL Assembly</span><span>EMU8086</span><span>GUI</span><span>Hex System</span>
+            </div>
+            <div class="project-links">
+                <a class="project-link" href="https://github.com/Malaika-CS/Hex-Editor-Simulation" target="_blank">🔗 View on GitHub</a>
+            </div>
         </div>
 
         <div class="project-card">
-            <h3>🌐 Freelancing Ethics in IT Industry</h3>
-            <p>A Capstone Project focusing on ethical responsibilities of freelancers in IT industry. Covers data privacy, intellectual property rights, and professional conduct. Includes a live web-based simulation system.</p>
-            <a class="project-link" href="https://rainbow-kringle-ddb92e.netlify.app/" target="_blank">🔗 View Live Project</a>
-            <a class="project-link" href="https://github.com/Malaika-CS/Freelancing-Ethics-in-IT" target="_blank"> | 🔗 View on GitHub</a>
+            <h3>🌐 Freelancing Ethics in IT Industry — Capstone Project</h3>
+            <p>A Final Year Capstone Project focusing on ethical responsibilities of freelancers in the IT industry.</p>
+            <p><strong>🎯 Objective:</strong> To analyze ethical challenges in freelancing and promote responsible professional behavior in IT.</p>
+            <p><strong>⚙️ Working:</strong> Includes a live web-based simulation covering data privacy, intellectual property rights, honest client relationships, fair pricing, and professional conduct.</p>
+            <p><strong>💡 Key Topics:</strong> Data Privacy, Intellectual Property Rights, Client Relationships, Fair Pricing, Professional Conduct, IT Ethics.</p>
+            <p><strong>📚 Learning:</strong> Gained deep understanding of ethical responsibilities in IT freelancing and developed a complete web-based project.</p>
+            <div class="detail">
+                <span>HTML/CSS</span><span>JavaScript</span><span>IT Ethics</span><span>Freelancing</span><span>Web Dev</span>
+            </div>
+            <div class="project-links">
+                <a class="project-link" href="https://rainbow-kringle-ddb92e.netlify.app/" target="_blank">🌐 View Live Project</a>
+                <a class="project-link" href="https://github.com/Malaika-CS/Freelancing-Ethics-in-IT" target="_blank">🔗 View on GitHub</a>
+            </div>
         </div>
 
     </div>
 </section>
 
-<!-- Contact -->
 <section id="contact">
     <div class="card">
-        <h2>📞 Contact</h2>
-        <div class="contact-info">
+        <h2>📞 Contact Me</h2>
+        <div class="contact-grid">
             <div class="contact-item">
-                🐙 <a href="https://github.com/Malaika-CS" target="_blank">github.com/Malaika-CS</a>
+                <div class="icon">📧</div>
+                <p>Email</p>
+                <a href="mailto:malaikazahoor008@gmail.com">malaikazahoor008@gmail.com</a>
             </div>
             <div class="contact-item">
-                📍 Pakistan
+                <div class="icon">🐙</div>
+                <p>GitHub</p>
+                <a href="https://github.com/Malaika-CS" target="_blank">github.com/Malaika-CS</a>
+            </div>
+            <div class="contact-item">
+                <div class="icon">📍</div>
+                <p>Location</p>
+                <p>Pakistan 🇵🇰</p>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Footer -->
 <footer>
-    <p>© 2025 Malaika Zahoor | BS Computer Science Student</p>
+    <p>© 2025 Malaika Zahoor | BS Computer Science Student | Pakistan 🇵🇰</p>
+    <p style="margin-top:8px; opacity:0.8;">Made with ❤️ by Malaika Zahoor</p>
 </footer>
 
 </body>
