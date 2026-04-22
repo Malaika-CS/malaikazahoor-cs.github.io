@@ -1,0 +1,159 @@
+html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malaika Zahoor | Portfolio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #333; }
+        
+        /* Header */
+        header { background: linear-gradient(135deg, #667eea, #764ba2); color: white; text-align: center; padding: 60px 20px; }
+        .avatar { width: 120px; height: 120px; border-radius: 50%; background: white; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 50px; }
+        header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        header p { font-size: 1.2em; opacity: 0.9; }
+        
+        /* Nav */
+        nav { background: #333; text-align: center; padding: 15px; position: sticky; top: 0; z-index: 100; }
+        nav a { color: white; text-decoration: none; margin: 0 20px; font-size: 1em; }
+        nav a:hover { color: #667eea; }
+        
+        /* Sections */
+        section { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .card { background: white; border-radius: 15px; padding: 30px; margin-bottom: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h2 { color: #667eea; font-size: 1.8em; margin-bottom: 20px; border-bottom: 3px solid #667eea; padding-bottom: 10px; }
+        
+        /* Skills */
+        .skills-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill { background: linear-gradient(135deg, #667eea, #764ba2); color: white; padding: 8px 20px; border-radius: 25px; font-size: 0.9em; }
+        
+        /* Projects */
+        .project-card { background: #f8f9ff; border-left: 4px solid #667eea; padding: 20px; border-radius: 10px; margin-bottom: 15px; }
+        .project-card h3 { color: #333; margin-bottom: 8px; }
+        .project-card p { color: #666; font-size: 0.95em; line-height: 1.6; }
+        .project-link { display: inline-block; margin-top: 10px; color: #667eea; text-decoration: none; font-weight: bold; }
+        
+        /* Contact */
+        .contact-info { display: flex; flex-direction: column; gap: 15px; }
+        .contact-item { display: flex; align-items: center; gap: 10px; font-size: 1em; }
+        .contact-item a { color: #667eea; text-decoration: none; }
+        
+        /* Footer */
+        footer { background: #333; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="avatar">👩‍💻</div>
+    <h1>Malaika Zahoor</h1>
+    <p>BS Computer Science Student | Freelancing & IT Ethics</p>
+</header>
+
+<!-- Nav -->
+<nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<!-- About -->
+<section id="about">
+    <div class="card">
+        <h2>👋 About Me</h2>
+        <p>I am Malaika Zahoor, a BS Computer Science student with a strong interest in freelancing and IT ethics. I have hands-on programming experience in C, C++, Java, and Python. I am passionate about responsible use of technology and building a professional career in the digital world. My goal is to become a skilled IT professional and successful freelancer.</p>
+    </div>
+</section>
+
+<!-- Skills -->
+<section id="skills">
+    <div class="card">
+        <h2>🛠️ Skills</h2>
+        <div class="skills-grid">
+            <span class="skill">C Programming</span>
+            <span class="skill">C++</span>
+            <span class="skill">Java</span>
+            <span class="skill">Python</span>
+            <span class="skill">SQL Database</span>
+            <span class="skill">HTML/CSS</span>
+            <span class="skill">MS Word</span>
+            <span class="skill">MS Excel</span>
+            <span class="skill">Problem Solving</span>
+            <span class="skill">Teamwork</span>
+            <span class="skill">Communication</span>
+            <span class="skill">Freelancing Ethics</span>
+        </div>
+    </div>
+</section>
+
+<!-- Projects -->
+<section id="projects">
+    <div class="card">
+        <h2>📁 Projects</h2>
+
+        <div class="project-card">
+            <h3>📚 Library Management System</h3>
+            <p>A GUI-based Library Management System developed in Java with full Database connectivity. Features include adding, searching, and managing books and members.</p>
+            <a class="project-link" href="https://github.com/Malaika-CS/Library-Management-System" target="_blank">🔗 View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+            <h3>🔌 Electricity Bill Generator</h3>
+            <p>A console-based Electricity Bill Generator developed in C Programming. Calculates electricity units and generates complete bill with all details.</p>
+            <a class="project-link" href="https://github.com/Malaika-CS/Electricity-Bill-Generator" target="_blank">🔗 View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+            <h3>📊 Maximum Heap Insertion</h3>
+            <p>A Maximum Heap data structure project developed in Java. Implements Max Heap with insertion and heapify operations as part of Data Structures course.</p>
+            <a class="project-link" href="https://github.com/Malaika-CS/MaxHeap-Java" target="_blank">🔗 View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+            <h3>💻 VirtualBox Windows Configuration</h3>
+            <p>Installed and configured Windows on VirtualBox. Performed FTP Server and Web Server configuration as part of Operating Systems course.</p>
+            <a class="project-link" href="https://github.com/Malaika-CS/VirtualBox-Windows-Configuration" target="_blank">🔗 View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+            <h3>🖥️ Hex Editor Simulation</h3>
+            <p>A GUI-based Hex Decimal Editor first developed in C++ then converted to COAL Assembly Language and simulated on EMU8086 emulator.</p>
+            <a class="project-link" href="https://github.com/Malaika-CS/Hex-Editor-Simulation" target="_blank">🔗 View on GitHub</a>
+        </div>
+
+        <div class="project-card">
+            <h3>🌐 Freelancing Ethics in IT Industry</h3>
+            <p>A Capstone Project focusing on ethical responsibilities of freelancers in IT industry. Covers data privacy, intellectual property rights, and professional conduct. Includes a live web-based simulation system.</p>
+            <a class="project-link" href="https://rainbow-kringle-ddb92e.netlify.app/" target="_blank">🔗 View Live Project</a>
+            <a class="project-link" href="https://github.com/Malaika-CS/Freelancing-Ethics-in-IT" target="_blank"> | 🔗 View on GitHub</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <div class="card">
+        <h2>📞 Contact</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                🐙 <a href="https://github.com/Malaika-CS" target="_blank">github.com/Malaika-CS</a>
+            </div>
+            <div class="contact-item">
+                📍 Pakistan
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>© 2025 Malaika Zahoor | BS Computer Science Student</p>
+</footer>
+
+</body>
+</html>
