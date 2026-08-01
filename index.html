@@ -109,6 +109,7 @@
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
     <a href="#projects">Projects</a>
+    <a href="#coursework">Coursework</a>
     <a href="#contact">Contact</a>
 </nav>
 
@@ -145,7 +146,56 @@
 
 <section id="projects">
     <div class="card">
-        <h2>📁 Projects</h2>
+        <h2>📁 Backend & AI Engineering Work (FlyRank Internship)</h2>
+
+        <div class="project-card">
+            <h3>⏱️ Background Job Pattern — PDF Report Generator</h3>
+            <p>An Express API that queries data and generates a PDF report as a background job, instead of blocking the request while the report renders.</p>
+            <p><strong>🎯 Objective:</strong> Return instantly (202 Accepted) while a worker generates the report in the background, then report status/download link separately.</p>
+            <p><strong>⚙️ Working:</strong> POST /reports kicks off the job and returns immediately with a job ID. A background worker renders the PDF (pdfkit), retries automatically on failure, and alerts if all retries fail. GET /reports/status/:id reports progress and, once done, a download link — idempotency keys prevent duplicate reports from repeated requests.</p>
+            <p><strong>📚 Learning:</strong> The professional "accept fast, work in background, report status" pattern used by virtually every SaaS product — plus idempotency, retries, and failure alerting as non-negotiables for production systems.</p>
+            <div class="detail">
+                <span>Node.js</span><span>Express</span><span>Background Jobs</span><span>pdfkit</span><span>Idempotency</span>
+            </div>
+            <div class="project-links">
+                <a class="project-link" href="https://github.com/Malaika-CS/PDF-Report-Generator" target="_blank">🔗 View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>🔐 Secure Auth API — Login & Protect</h3>
+            <p>A secure REST API built with Supabase Auth: sign up, log in, log out, and JWT-protected routes.</p>
+            <p><strong>🎯 Objective:</strong> Handle user authentication and protect specific endpoints so only logged-in users can access private data.</p>
+            <p><strong>⚙️ Working:</strong> Supabase issues a JWT on login; a reusable middleware extracts and verifies the bearer token on every protected route via Supabase before letting the request through — invalid or missing tokens get a 401.</p>
+            <p><strong>📚 Learning:</strong> How real-world auth actually works — trust triangle between client, server, and identity provider, and why you never write your own password hashing.</p>
+            <div class="detail">
+                <span>Node.js</span><span>Express</span><span>Supabase</span><span>JWT</span><span>Middleware</span>
+            </div>
+            <div class="project-links">
+                <a class="project-link" href="https://github.com/Malaika-CS/Auth-Login-Protect" target="_blank">🔗 View on GitHub</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>🕸️ The Polite Scraper</h3>
+            <p>A web scraper that collects and structures data from a practice site while respecting robots.txt, rate limits, and proper identification.</p>
+            <p><strong>🎯 Objective:</strong> Build a data-gathering pipeline (fetch → parse → extract → clean → structure) the way it should be done professionally, not just "make it work."</p>
+            <p><strong>⚙️ Working:</strong> Fetches pages, parses and extracts the useful fields, cleans the data, and saves structured records — while behaving like a bot a site owner would actually allow.</p>
+            <p><strong>📚 Learning:</strong> The professionalism layer around scraping that most tutorials skip: rate limiting, identification headers, and respecting robots.txt.</p>
+            <div class="detail">
+                <span>Node.js</span><span>Web Scraping</span><span>Data Pipelines</span>
+            </div>
+            <div class="project-links">
+                <a class="project-link" href="https://github.com/Malaika-CS/polite-scraper" target="_blank">🔗 View on GitHub</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="coursework">
+    <div class="card">
+        <h2>🎓 Coursework Projects</h2>
 
         <div class="project-card">
             <h3>📚 Library Management System</h3>
