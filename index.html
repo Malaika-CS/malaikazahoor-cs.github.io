@@ -90,6 +90,22 @@
         .contact-item:hover { transform: translateY(-3px); }
         .contact-item .icon { font-size: 2em; margin-bottom: 10px; }
         .contact-item a { color: #667eea; text-decoration: none; font-weight: 500; word-break: break-all; }
+        .message-form { display: flex; flex-direction: column; gap: 15px; }
+        .form-row { display: flex; gap: 15px; flex-wrap: wrap; }
+        .message-form input, .message-form textarea {
+            flex: 1; min-width: 200px; padding: 14px 16px; border-radius: 12px;
+            border: 2px solid #e0e4ff; font-family: inherit; font-size: 0.95em;
+            background: #f8f9ff; resize: vertical;
+        }
+        .message-form input:focus, .message-form textarea:focus {
+            outline: none; border-color: #667eea;
+        }
+        .submit-btn {
+            align-self: flex-start; padding: 12px 30px; border: none; border-radius: 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2); color: white;
+            font-size: 1em; font-weight: bold; cursor: pointer; transition: opacity 0.3s;
+        }
+        .submit-btn:hover { opacity: 0.85; }
         footer {
             background: linear-gradient(135deg, #667eea, #764ba2);
             color: white; text-align: center; padding: 25px; margin-top: 40px;
@@ -324,6 +340,16 @@
                 <p>Pakistan 🇵🇰</p>
             </div>
         </div>
+
+        <h2 style="margin-top:40px;">✉️ Send Me a Message</h2>
+        <form action="https://formspree.io/f/mvzejrdd" method="POST" class="message-form">
+            <div class="form-row">
+                <input type="text" name="name" placeholder="Your name" required>
+                <input type="email" name="email" placeholder="Your email" required>
+            </div>
+            <textarea name="message" rows="5" placeholder="Your message" required></textarea>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
     </div>
 </section>
 
